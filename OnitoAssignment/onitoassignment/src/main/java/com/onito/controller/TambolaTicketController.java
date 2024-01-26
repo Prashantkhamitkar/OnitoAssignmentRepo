@@ -58,6 +58,6 @@ public ResponseEntity<Page<TambolaTicket>> fetchTambolaTickets(
 	        ticketData.addAll(ticket.getTicketNumbers());
 	    }
 		emailservices.sendEmailWithAttachment(dto.getEmail(),ticketData);
-		return ResponseEntity.ok("called");
+		return ResponseEntity.ok("Generated Ticket sent to UsersEmail");
 	}
 }
