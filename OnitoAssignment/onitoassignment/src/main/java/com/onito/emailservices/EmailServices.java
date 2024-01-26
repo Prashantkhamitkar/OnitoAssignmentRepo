@@ -42,6 +42,10 @@ public void sendEmailWithAttachment(String to,List<List<Integer>> ticketData) th
 private File generateTicketFile(List<List<Integer>> ticketData) throws IOException {
     File ticketFile = File.createTempFile("Tambola_ticket", ".txt");
     try (FileWriter writer = new FileWriter(ticketFile)) {
+    
+    	 writer.write("___________created by PK____________\n");
+    	 
+    	 writer.write("___________________________________________\n");
         int rowCount = 0; // Counter for rows processed
         for (List<Integer> ticketRow : ticketData) {
             for (int i = 0; i < ticketRow.size(); i++) {
@@ -58,9 +62,10 @@ private File generateTicketFile(List<List<Integer>> ticketData) throws IOExcepti
             rowCount++;
            
             if (rowCount % 3 == 0 && rowCount != ticketData.size()) {
-                writer.write("______________________________________________________\n");
+                writer.write("___________________________________________\n");
             }
         }
+        writer.write("___________________________________________\n");
         return ticketFile;
     }
     
